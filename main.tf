@@ -20,11 +20,3 @@ resource "aws_s3_bucket" "tf_backend" {
   bucket = "pjsmith404-tf-backend"
 }
 
-resource "aws_route53_zone" "syphilicious_net" {
-  name = "syphilicious.net"
-}
-
-resource "aws_route53_zone" "pjsmith404_org" {
-  name = "pjsmith404.org"
-}
-
