@@ -33,3 +33,35 @@ resource "aws_route53_record" "_dmarc_syphilicious_net" {
   ttl = 86400
   records = ["v=DMARC1; p=reject;"]
 }
+
+resource "aws_route53_record" "syphilicious_net_a" {
+  zone_id = aws_route53_zone.syphilicious_net.zone_id
+  name = "syphilicious.net"
+  type = "A"
+  ttl = 300
+  records = [var.public_ipv4]
+}
+
+resource "aws_route53_record" "syphilicious_net_aaaa" {
+  zone_id = aws_route53_zone.syphilicious_net.zone_id
+  name = "syphilicious.net"
+  type = "AAAA"
+  ttl = 300
+  records = [var.public_ipv6]
+}
+
+resource "aws_route53_record" "jelly_syphilicious_net_a" {
+  zone_id = aws_route53_zone.syphilicious_net.zone_id
+  name = "jelly.syphilicious.net"
+  type = "A"
+  ttl = 300
+  records = [var.public_ipv4]
+}
+
+resource "aws_route53_record" "jelly_syphilicious_net_aaaa" {
+  zone_id = aws_route53_zone.syphilicious_net.zone_id
+  name = "jelly.syphilicious.net"
+  type = "AAAA"
+  ttl = 300
+  records = [var.public_ipv6]
+}
